@@ -1,5 +1,7 @@
 import React from "react";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { fadeIn, textVariant } from "../ultils/motion";
 
 const Footer = () => {
   const footerLinks = {
@@ -26,18 +28,23 @@ const Footer = () => {
     ],
   };
   return (
-    <footer className="bg-gray-50">
+    <motion.footer
+      variants={fadeIn("up", 0.2)}
+      initial="hidden"
+      whileInView="show"
+      className="bg-gray-50"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Brand Column */}
-          <div className="lg:col-span-4">
-            <div className="flex gap-1 items-center mb-6">
+          <motion.div  variants={fadeIn('right', 0.4)} className="lg:col-span-4">
+            <motion.div  variants={fadeIn('right', 0.5)} className="flex gap-1 items-center mb-6">
               <div className="flex items-center gap-1 cursor-pointer">
                 <div className="w-4 h-4 bg-blue-600 rounded-full opacity-75 hover:opacity-100 transition-opacity"></div>
                 <div className="w-4 h-4 bg-red-500 -ml-2 rounded-full opacity-100 hover:opacity-75 transition-opacity"></div>
               </div>
               <span className="text-xl font-medium ml-1">The Next Design</span>
-            </div>
+            </motion.div>
 
             <p className="text-gray-600 mb-6">
               The copy warned the Little Blind Text, that where it came from it
@@ -64,7 +71,7 @@ const Footer = () => {
                 <FaLinkedinIn className="w-5 h-5" />
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Links Columns */}
           <div className="lg:col-span-8">
@@ -92,7 +99,7 @@ const Footer = () => {
               )}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Copyright */}
         <div className="border-t border-gray-200 mt-12 pt-8">
@@ -104,7 +111,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 
