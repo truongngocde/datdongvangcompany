@@ -5,7 +5,7 @@ import { fadeIn, textVariant } from "../ultils/motion";
 
 const NewsletterSection = () => {
   return (
-    <section id="newsletter" className="section-container px-4 md:px-0">
+    <section id="contact" className="section-container px-4 md:px-0">
       <motion.div 
         variants={fadeIn('up', 0.2)}
         initial="hidden"
@@ -29,13 +29,13 @@ const NewsletterSection = () => {
                 variants={textVariant(0.3)}
                 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-4"
               >
-                Subscribe newsletter
+                Đăng ký nhận tin
               </motion.h2>
               <motion.p 
                 variants={fadeIn('up', 0.6)}
                 className="text-blue-100 text-sm sm:text-base"
               >
-                Best cooks and best delivery guys all at your service. Hot tasty food
+                Nhận thông tin mới nhất về dịch vụ, giải pháp và cơ hội hợp tác từ ARIA HOLDINGS.
               </motion.p>
             </motion.div>
 
@@ -60,7 +60,7 @@ const NewsletterSection = () => {
                   whileTap={{ scale: 0.95 }}
                   className="w-full sm:w-auto cursor-pointer bg-green-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-l-none sm:rounded-r-xl hover:bg-green-600 transition-colors flex items-center justify-center sm:justify-start gap-2"
                 >
-                  <span>Discover</span>
+                  <span>Đăng kí</span>
                   <HiArrowRight className="w-5 h-5" />
                 </motion.button>
               </motion.div>
