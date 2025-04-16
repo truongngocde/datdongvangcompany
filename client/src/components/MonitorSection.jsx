@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../ultils/motion";
 import "swiper/css";
 import "swiper/css/navigation";
-import monitorCardBg from "../assets/monitor-card.webp";
+import monitorCardBg from "../assets/sodocty.png";
 
 const MonitorSection = () => {
   return (
@@ -26,9 +26,9 @@ const MonitorSection = () => {
             variants={textVariant(0.5)}
             className="text-3xl md:text-4xl font-bold text-navy-900 mt-4 mb-6 md:w-4/5"
           >
-            Thành tựu và dự án tiêu biểu của Aria Holdings
+            SƠ ĐỒ CƠ CẤU TỔ CHỨC
           </motion.h2>
-          <motion.div
+          {/* <motion.div
             variants={fadeIn("right", 0.8)}
             className="flex items-center gap-2"
           >
@@ -37,8 +37,8 @@ const MonitorSection = () => {
             </div>
             <span className="text-gray-600">Thực hiện nhiều dự án kỹ thuật, công nghiệp quy mô lớn.</span>
           </motion.div>
-          <br />
-          <motion.div
+          <br /> */}
+          {/* <motion.div
             variants={fadeIn("right", 0.8)}
             className="flex items-center gap-2"
           >
@@ -66,15 +66,13 @@ const MonitorSection = () => {
               <div className="w-2.5 h-2.5 rounded-full bg-green-600"></div>
             </div>
             <span className="text-gray-600">Hợp tác với các đối tác lớn trong lĩnh vực chăm sóc sức khỏe.</span>
-          </motion.div>
-          {/* <motion.p
+          </motion.div> */}
+          <motion.p
             variants={fadeIn("up", 0.6)}
             className="text-gray-600 mb-8 md:w-4/5"
           >
-            Before the ship is really back. Round, round, all around the world.
-            Round, all around the world. Round, all around the world. Round, all
-            around the world.
-          </motion.p> */}
+            Công ty không ngừng nâng cao trình độ nhân sự qua các khóa huấn luyện, đào tạo nội bộ định kỳ và cập nhật kiến thức ngành nghề, kỹ năng mềm.
+          </motion.p>
           <motion.a
             variants={fadeIn("up", 0.7)}
             href="#"

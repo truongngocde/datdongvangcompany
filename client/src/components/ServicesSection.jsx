@@ -8,35 +8,36 @@ import { fadeIn, textVariant } from "../ultils/motion";
 
 const ServicesSection = () => {
   const services = [
-    // {
-    //   icon: <BiTime className="w-8 h-8 text-cyan-400" /> ,
-    //   title: "Web Design",
-    //   description: "One for all and all for one, Muskehounds are always ready.",
-    //   link: "#learn-more",
-    // },
     {
-      icon: <HiLightBulb className="w-8 h-8 text-amber-400" />,
-      title: "Tư vấn & Giải pháp Công nghệ",
+      icon: <HiLightBulb className="w-8 h-8 text-yellow-500" />,
+      title: "Thức ăn chăn nuôi",
       description:
-        "ARIA HOLDINGS cung cấp dịch vụ tư vấn chiến lược và phát triển phần mềm tùy chỉnh, chuyển đổi số, AI và Big Data, giúp doanh nghiệp tăng trưởng bền vững trong môi trường cạnh tranh.",
+        "Cung cấp cám viên, cám đậm đặc, nguyên liệu thô cho heo, gà, cá... Sản xuất theo công thức cân đối dinh dưỡng, sử dụng nguyên liệu nhập khẩu từ Mỹ, Hà Lan, Argentina.",
       link: "#learn-more",
     },
     {
-      icon: <FiSettings className="w-8 h-8 text-red-400" />,
-      title: "Đầu tư & Phát triển Dự án",
+      icon: <FiSettings className="w-8 h-8 text-red-500" />,
+      title: "Kinh doanh chất đốt",
       description:
-        "ARIA HOLDINGS đầu tư vào bất động sản, hạ tầng và công nghệ. Chúng tôi cam kết lợi nhuận bền vững và phát triển các dự án tiềm năng lâu dài.",
+        "Phân phối than đá, củi trấu, viên nén gỗ, than tổ ong... phục vụ hộ gia đình, nhà hàng và công nghiệp. Hiệu suất cháy cao, giá ổn định và thân thiện với môi trường.",
       link: "#learn-more",
     },
     {
       icon: <BsStack className="w-8 h-8 text-indigo-600" />,
-      title: "Quản lý & Phát triển Thương hiệu",
+      title: "Vật tư cơ khí",
       description:
-        "Chúng tôi xây dựng và quản lý thương hiệu, từ phát triển nhận diện, chiến lược truyền thông đến chiến dịch marketing giúp doanh nghiệp vươn tầm.",
+        "Cung cấp bulong, ốc vít, đá cắt mài, ty ren, dụng cụ cơ khí phục vụ nhà xưởng, nhà máy và các công trình công nghiệp.",
+      link: "#learn-more",
+    },
+    {
+      icon: <BsStack className="w-8 h-8 text-green-600" />,
+      title: "Vật liệu xây dựng",
+      description:
+        "Phân phối sắt thép (H, I, U, V), xi măng, cát đá, tôn lợp, ống hộp kẽm... Đầy đủ CO/CQ, vận chuyển tận nơi, giá cạnh tranh.",
       link: "#learn-more",
     },
   ];
-
+  
   return (
     <section
       id="services"
@@ -52,7 +53,7 @@ const ServicesSection = () => {
             variants={textVariant(0.2)}
             className="text-3xl md:text-4xl font-bold mb-6 md:w-4/5"
           >
-            Sản phẩm & Dịch vụ của ARIA
+            Sản phẩm & Dịch vụ của Đất Đồng Vàng
           </motion.h2>
 
           <motion.p
@@ -72,7 +73,7 @@ const ServicesSection = () => {
               <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center">
                 <div className="w-2.5 h-2.5 rounded-full bg-indigo-600"></div>
               </div>
-              <span className="text-gray-600">Dịch Vụ Tư Vấn và Giải Pháp Công Nghệ</span>
+              <span className="text-gray-600">Sản xuất & Kinh doanh thức ăn chăn nuôi</span>
             </motion.div>
             <motion.div
               variants={fadeIn("right", 0.8)}
@@ -81,7 +82,7 @@ const ServicesSection = () => {
               <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center">
                 <div className="w-2.5 h-2.5 rounded-full bg-indigo-600"></div>
               </div>
-              <span className="text-gray-600">Đầu Tư và Phát Triển Dự Án</span>
+              <span className="text-gray-600">Kinh doanh thương mại chất đốt</span>
               
             </motion.div>
             <motion.div
@@ -91,7 +92,17 @@ const ServicesSection = () => {
               <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center">
                 <div className="w-2.5 h-2.5 rounded-full bg-indigo-600"></div>
               </div>
-              <span className="text-gray-600">Quản Lý và Phát Triển Thương Hiệu</span>
+              <span className="text-gray-600">Kinh doanh vật tư cơ khí</span>
+              
+            </motion.div>
+            <motion.div
+              variants={fadeIn("right", 0.8)}
+              className="flex items-center gap-2"
+            >
+              <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center">
+                <div className="w-2.5 h-2.5 rounded-full bg-indigo-600"></div>
+              </div>
+              <span className="text-gray-600">Kinh doanh vật liệu xây dựng (bao gồm sắt thép)</span>
               
             </motion.div>
           </motion.div>

@@ -18,9 +18,9 @@ function Home() {
     <FeaturesSection />
     <MonitorSection />
     {/* <PricingSection /> */}
-    <TestimonialSection />
-    <PurposeSection />
-    <CompanyLogo />
+    {/* <TestimonialSection /> */}
+    {/* <PurposeSection /> */}
+    {/* <CompanyLogo /> */}
     <NewsletterSection />
     </>
   )

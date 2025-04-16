@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../ultils/motion";
-import heroImage from "../assets/hero-image.png";
+import heroImage from "../assets/heroImg.jpg"; // ảnh mới vừa tạo
 
 const Hero = () => {
   return (
@@ -11,19 +11,18 @@ const Hero = () => {
     >
       {/* Left Column */}
       <div className="w-full md:w-1/2 space-y-8">
-
         <motion.div
           variants={fadeIn("right", 0.2)}
           initial="hidden"
           whileInView="show"
         >
-          {/* Star badge */}
-          <div className="flex items-center gap-2 bg-gray-50 w-fit px-4 py-2 rounded-full hover:bg-gray-100 transition-colors cursor-pointer group">
-            <span className="text-blue-600 group-hover:scale-110 transition-transform">
-              ★
+          {/* Slogan badge */}
+          <div className="flex items-center gap-2 bg-yellow-50 w-fit px-4 py-2 rounded-full hover:bg-yellow-100 transition-colors cursor-pointer group">
+            <span className="text-green-600 group-hover:scale-110 transition-transform">
+              🔰
             </span>
             <span className="text-sm font-medium">
-              Tiên phong trong chuyển đổi số
+              Vững nền móng – Bền niềm tin
             </span>
           </div>
         </motion.div>
@@ -34,27 +33,27 @@ const Hero = () => {
           whileInView="show"
           className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
         >
-          Đối tác chiến lược cho{" "}
-          <span className="text-blue-600 relative inline-block">
-            Doanh nghiệp & Tập đoàn
-            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-200/60"></span>
-          </span>{" "}
-          đa quốc gia
-          <span className="inline-block ml-2">✨</span>
+          Đơn vị đa ngành{" "}
+          <span className="text-green-700 relative inline-block">
+            tiên phong{" "}
+            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-green-300/60"></span>
+          </span>
+          trong sản xuất & thương mại thiết yếu
         </motion.h1>
 
         <motion.p
           variants={fadeIn("up", 0.4)}
           initial="hidden"
           whileInView="show"
-          className="text-gray-600 text-lg md:text-xl max-w-xl"
+          className="text-gray-700 text-lg md:text-xl max-w-xl"
         >
-          Cung cấp giải pháp toàn diện từ Công nghiệp, Công nghệ đến Chăm sóc
-          sức khỏe, với nền tảng đổi mới sáng tạo và phát triển bền vững.
+          CÔNG TY CỔ PHẦN ĐẤT ĐỒNG VÀNG chuyên hoạt động trong các lĩnh vực:
+          sản xuất thức ăn chăn nuôi, thương mại chất đốt, vật tư cơ khí và
+          vật liệu xây dựng – đồng hành cùng sự phát triển bền vững của doanh nghiệp Việt.
         </motion.p>
       </div>
 
-      {/* Right Column - Images */}
+      {/* Right Column - Image */}
       <motion.div
         variants={fadeIn("left", 0.5)}
         initial="hidden"
@@ -64,8 +63,8 @@ const Hero = () => {
         <div className="relative">
           <img
             src={heroImage}
-            alt="Team meeting"
-            className="rounded-lg relative z-10 hover:scale-[1.02] transition-transform duration-300"
+            alt="Kho vật tư Đất Đồng Vàng"
+            className="rounded-lg relative z-10 hover:scale-[1.02] transition-transform duration-300 shadow-xl"
           />
         </div>
       </motion.div>

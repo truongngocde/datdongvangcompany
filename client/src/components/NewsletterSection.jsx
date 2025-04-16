@@ -35,7 +35,7 @@ const NewsletterSection = () => {
                 variants={fadeIn('up', 0.6)}
                 className="text-blue-100 text-sm sm:text-base"
               >
-                Nhận thông tin mới nhất về dịch vụ, giải pháp và cơ hội hợp tác từ ARIA HOLDINGS.
+                Nhận thông tin mới nhất về dịch vụ, giải pháp và cơ hội hợp tác từ CÔNG TY CỔ PHẦN ĐẤT ĐỒNG VÀNG.
               </motion.p>
             </motion.div>
 

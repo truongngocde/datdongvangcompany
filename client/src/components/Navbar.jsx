@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../ultils/motion";
 import flagViet from "../assets/flagViet.jpg";
 import flagEnglish from "../assets/flagEnglish.jpg";
+import logoDDV from "../assets/logoDatdongvang.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,22 +43,18 @@ const Navbar = () => {
         >
           <div className="flex flex-col items-center justify-center leading-none">
             {/* Logo chữ "aria" với chấm đỏ trên chữ "i" */}
-            <div className="relative flex items-center font-bold text-2xl md:text-3xl tracking-tight text-gray-900">
-              <span>a</span>
-              <span>r</span>
-              <div className="relative">
-                <span>ı</span> {/* Chữ "i" không chấm */}
-                {/* Dấu chấm đỏ */}
-                <span className="absolute -top-0 left-1/2 -translate-x-1/2 w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-red-500"></span>
-              </div>
-
-              <span>a</span>
+            <div className="flex items-center space-x-2">
+              <img
+                src={logoDDV} // <-- đường dẫn tới logo
+                alt="Logo Đất Đồng Vàng"
+                className="h-20 md:h-20 w-auto"
+              />
             </div>
 
             {/* HOLDING chữ nhỏ bên dưới */}
-            <div className="text-[10px] md:text-xs tracking-widest text-gray-600 mt-0.5">
+            {/* <div className="text-[10px] md:text-xs tracking-widest text-gray-600 mt-0.5">
               HOLDING
-            </div>
+            </div> */}
           </div>
         </motion.div>
 
