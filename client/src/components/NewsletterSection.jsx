@@ -51,7 +51,7 @@ const NewsletterSection = () => {
                 <motion.input
                   variants={fadeIn('right', 0.7)}
                   type="email"
-                  placeholder="Enter your email address"
+                  placeholder="Nhập địa chỉ Email của bạn..."
                   className="w-full sm:w-auto md:w-80 px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-l-xl sm:rounded-r-none focus:outline-none focus:ring-2 focus:ring-green-500 bg-white"
                 />
                 <motion.button 

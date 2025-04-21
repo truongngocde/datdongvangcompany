@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { HiMenu, HiX, HiSearch, HiOutlineX } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { fadeIn } from "../ultils/motion";
+import { FaCaretDown } from "react-icons/fa";
 import flagViet from "../assets/flagViet.jpg";
 import flagEnglish from "../assets/flagEnglish.jpg";
 import logoDDV from "../assets/logoDatdongvang.png";
@@ -13,10 +14,32 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const navLinks = [
-    { href: "#home", label: "Trang chủ" },
-    { href: "#about", label: "Giới thiệu" },
-    { href: "#services", label: "Dịch vụ" },
-    { href: "#contact", label: "Liên hệ" },
+    { href: "#home", label: "TRANG CHỦ" },
+    { href: "#about", label: "GIỚI THIỆU" },
+    {
+      label: "LĨNH VỰC HOẠT ĐỘNG",
+      children: [
+        { label: "Sản xuất & Kinh doanh thức ăn chăn nuôi", href: "#" },
+        { label: "Kinh doanh thương mại chất đốt", href: "#" },
+        {
+          label: "Kinh doanh vật tư cơ khí",
+          href: "#",
+        },
+        {
+          label:
+            "Kinh doanh vật liệu xây dựng (bao gồm sắt thép)",
+          href: "#",
+        },
+      ],
+    },
+    {
+      label: "TIN TỨC",
+      children: [
+        { label: "Lĩnh vực sản xuất", href: "#" },
+        { label: "Lĩnh vực kinh doanh", href: "#" },
+      ],
+    },
+    { href: "#contact", label: "LIÊN HỆ" },
   ];
 
   const handleSearch = (e) => {
@@ -70,24 +93,65 @@ const Navbar = () => {
         {/* Navigation Links - Desktop */}
         <motion.div
           variants={fadeIn("down", 0.3)}
-          className="hidden md:flex items-center gap-10"
+          className="hidden md:flex items-center gap-6"
         >
-          {navLinks.map((link, index) => (
-            <motion.a
-              key={index}
-              variants={fadeIn("down", 0.1 * (index + 1))}
-              href={link.href}
-              onClick={() => setActiveLink(link.href)}
-              className={`text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-blue-600 after:transition-all
-                ${
-                  activeLink === link.href
-                    ? "text-blue-600 after:w-full"
-                    : "text-gray-600 hover:text-gray-900"
-                }`}
-            >
-              {link.label}
-            </motion.a>
-          ))}
+          {navLinks.map((link, index) => {
+            const [showDropdown, setShowDropdown] = useState(false);
+            const [hideTimeout, setHideTimeout] = useState(null);
+
+            const handleMouseEnter = () => {
+              if (hideTimeout) clearTimeout(hideTimeout);
+              setShowDropdown(true);
+            };
+
+            const handleMouseLeave = () => {
+              const timeout = setTimeout(() => {
+                setShowDropdown(false);
+              }, 200); // 3 giây
+              setHideTimeout(timeout);
+            };
+
+            return (
+              <div
+                key={index}
+                className="relative"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <motion.a
+                  variants={fadeIn("down", 0.1 * (index + 1))}
+                  href={link.href || "#"}
+                  onClick={() => setActiveLink(link.href || "")}
+                  className={`text-xs font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-green-800 after:transition-all
+        ${
+          activeLink === link.href
+            ? "text-green-800 after:w-full"
+            : "text-gray-600 hover:text-gray-900"
+        }`}
+                >
+                  <span className="flex items-center gap-1">
+                    {link.label}
+                    {link.children && (
+                      <FaCaretDown className="text-xs mt-[1px]" />
+                    )}
+                  </span>
+                </motion.a>
+
+                {link.children && showDropdown && (
+                  <ul className="absolute top-full left-0 mt-1 w-max bg-white border border-gray-200 shadow-lg rounded-md py-2 px-2 z-50">
+                    {link.children.map((subLink, i) => (
+                      <li
+                        key={i}
+                        className="whitespace-nowrap px-4 py-2 hover:bg-green-800 hover:text-white text-sm rounded-md transition-all cursor-pointer"
+                      >
+                        <a href={subLink.href}>{subLink.label}</a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            );
+          })}
         </motion.div>
 
         {/* Right Side - Search and CTA */}
@@ -226,7 +290,7 @@ const Navbar = () => {
                 className={`block text-sm font-medium py-2
                   ${
                     activeLink === link.href
-                      ? "text-blue-600"
+                      ? "text-green-800"
                       : "text-gray-600 hover:text-gray-900"
                   }`}
               >
@@ -237,7 +301,7 @@ const Navbar = () => {
               variants={fadeIn("up", 0.4)}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100"
+              className="w-full bg-green-800 text-white px-6 py-2.5 rounded-lg hover:bg-green-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100"
             >
               Tìm hiểu thêm
             </motion.button>
