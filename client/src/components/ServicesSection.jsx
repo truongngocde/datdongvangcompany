@@ -40,10 +40,11 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 container mx-auto px-4 sm:px-6 lg:px-8">
+    <section  className="py-20 container mx-auto px-4 sm:px-6 lg:px-8">
       <motion.div
         initial="hidden"
         whileInView="show"
+        id="services"
         viewport={{ once: true, amount: 0.15 }}
         variants={fadeIn("up", 0.3)}
         className="flex flex-col md:flex-row items-start justify-between gap-10 lg:gap-20"

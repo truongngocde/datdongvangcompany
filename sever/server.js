@@ -12,17 +12,17 @@ process.on('uncaughtException', (err) => {
 const app = require('./app');
 
 // Connect database
-dotenv.config({ path: './config.env' });
+// dotenv.config({ path: './config.env' });
 
-const DB = process.env.DATABASE.replace(
-  '<PASSWORD>',
-  process.env.DATABASE_PASSWORD
-);
+// const DB = process.env.DATABASE.replace(
+//   '<PASSWORD>',
+//   process.env.DATABASE_PASSWORD
+// );
 mongoose
-  .connect(DB, {
+  .connect('mongodb+srv://admin:De123456789@datdongvang.ugtce2x.mongodb.net/news', {
     useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
+    // useCreateIndex: true,
+    // useFindAndModify: false,
     useUnifiedTopology: true,
   })
   .then(() => {
@@ -33,7 +33,7 @@ mongoose
 // Create server
 const port = process.env.PORT || 8000;
 const server = app.listen(port, () => {
-  console.log('App natours is running on http://localhost:8000');
+  console.log('Datdongvang is running on http://localhost:8000');
 });
 
 process.on('unhandledRejection', (err) => {

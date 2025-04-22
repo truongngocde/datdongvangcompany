@@ -18,6 +18,7 @@ const Navbar = () => {
     { href: "#about", label: "GIỚI THIỆU" },
     {
       label: "LĨNH VỰC HOẠT ĐỘNG",
+      href: "#services", 
       children: [
         { label: "Sản xuất & Kinh doanh thức ăn chăn nuôi", href: "#" },
         { label: "Kinh doanh thương mại chất đốt", href: "#" },
@@ -33,6 +34,7 @@ const Navbar = () => {
       ],
     },
     {
+      href: "#news", 
       label: "TIN TỨC",
       children: [
         { label: "Lĩnh vực sản xuất", href: "#" },

@@ -57,7 +57,7 @@ export default function PopularNewsSection() {
   const other = news.slice(1);
 
   return (
-    <div className="bg-blue-50 flex items-center justify-center">
+    <div  id="news" className="bg-blue-50 flex items-center justify-center">
       <section className="px-6 py-16 max-w-7xl mx-aut">
         <motion.h2
           variants={textVariant(0.2)}
