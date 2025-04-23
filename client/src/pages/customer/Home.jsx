@@ -7,6 +7,7 @@ import ServicesSection from '../../components/ServicesSection';
 import NewsletterSection from '../../components/NewsletterSection';
 import NewsSlider from '../../components/NewsSlider';
 import NewsPdfSection from '../../components/NewsPdfSection';
+import NewsPosts from '../../components/NewsTest';
 
 function Home() {
   return (
@@ -19,6 +20,7 @@ function Home() {
     <NewsSlider />
     <NewsPdfSection />
     {/* <NewsletterSection /> */}
+    {/* <NewsPosts /> */}
     </>
   )
 }

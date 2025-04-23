@@ -1,64 +1,32 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { CalendarDays } from "lucide-react";
 import { motion } from "framer-motion";
-import { fadeIn, textVariant } from "../ultils/motion"; // Giữ lại animation đã định nghĩa
-
-const mockData = [
-  {
-    _id: "1",
-    title: "Tiến sĩ Nguyễn Thanh Quang tham dự hội nghị khoa học với chủ đề...",
-    summary:
-      "Tiến sĩ Nguyễn Thanh Quang tham dự hội nghị khoa học với chủ đề: Công nghệ Nhiệt – Lạnh hướng tới phát triển bền vững (TETSD2017).",
-    thumbnail: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-    created_at: "2024-11-05T00:00:00Z",
-    author: "Amelia Clark",
-    authorImage: "https://randomuser.me/api/portraits/women/44.jpg",
-  },
-  {
-    _id: "2",
-    title:
-      "CTCP Đầu tư công nghiệp xuất nhập khẩu Đông Dương (DDG): Thông báo...",
-    summary: "Thông báo thay đổi nội dung đăng ký doanh nghiệp.",
-    thumbnail: "https://randomuser.me/api/portraits/women/44.jpg",
-    created_at: "2024-10-29T00:00:00Z",
-    author: "Benjamin Evans",
-    authorImage: "https://randomuser.me/api/portraits/men/55.jpg",
-  },
-  {
-    _id: "3",
-    title:
-      "CTCP Đầu tư công nghiệp xuất nhập khẩu Đông Dương (DDG): Thông báo...",
-    summary: "Thông báo thay đổi nội dung đăng ký doanh nghiệp.",
-    thumbnail: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
-    created_at: "2024-10-29T00:00:00Z",
-    author: "Benjamin Evans",
-    authorImage: "https://randomuser.me/api/portraits/men/55.jpg",
-  },
-  {
-    _id: "4",
-    title:
-      "CTCP Đầu tư công nghiệp xuất nhập khẩu Đông Dương (DDG): Thông báo...",
-    summary: "Thông báo thay đổi nội dung đăng ký doanh nghiệp.",
-    thumbnail: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
-    created_at: "2024-10-29T00:00:00Z",
-    author: "Benjamin Evans",
-    authorImage: "https://randomuser.me/api/portraits/men/55.jpg",
-  },
-];
+import { fadeIn, textVariant } from "../ultils/motion";
 
 export default function PopularNewsSection() {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    setNews(mockData);
+    const fetchNews = async () => {
+      try {
+        const res = await axios.get("http://localhost:8000/api/news-posts");
+        const publishedNews = res.data.filter(post => post.is_published);
+        setNews(publishedNews);
+      } catch (err) {
+        console.error("Lỗi khi lấy tin tức:", err);
+      }
+    };
+
+    fetchNews();
   }, []);
 
   const featured = news[0];
   const other = news.slice(1);
 
   return (
-    <div  id="news" className="bg-blue-50 flex items-center justify-center">
-      <section className="px-6 py-16 max-w-7xl mx-aut">
+    <div id="news" className="bg-blue-50 flex items-center justify-center">
+      <section className="px-6 py-16 max-w-7xl mx-auto">
         <motion.h2
           variants={textVariant(0.2)}
           initial="hidden"
@@ -74,7 +42,7 @@ export default function PopularNewsSection() {
           {featured && (
             <>
               <motion.img
-                src={featured.thumbnail}
+                src={`http://localhost:8000/${featured.thumbnail}`}
                 alt={featured.title}
                 className="rounded-xl w-full h-full object-cover"
                 variants={fadeIn("right", 0.3)}
@@ -112,7 +80,7 @@ export default function PopularNewsSection() {
               className="flex items-start gap-5"
             >
               <img
-                src={post.thumbnail}
+                src={`http://localhost:8000/${post.thumbnail}`}
                 alt={post.title}
                 className="w-24 h-24 rounded-md object-cover"
               />

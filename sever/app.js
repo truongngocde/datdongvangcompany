@@ -6,7 +6,7 @@
 // const mongoSanitize = require('express-mongo-sanitize');
 // const xss = require('xss-clean');
 // const hpp = require('hpp');
-// const cors = require('cors');
+const cors = require('cors');
 // const cookieParser = require('cookie-parser');
 // const compression = require('compression');
 
@@ -49,13 +49,11 @@ mongoose
 // // Set security HTTP headers
 // //app.use(helmet())
 // app.use( helmet({ contentSecurityPolicy: false }) ); //use axios link
-// app.use(cors(
-//   {
-//     origin: [],
-//     credentials: true,
-//     methods: ["POST", "GET"]
-//   }
-// ));
+app.use(cors({
+  origin: 'http://localhost:5173', // bạn có thể dùng '*' trong quá trình dev
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 // // 1) GLOBAL/ MIDDLEWARES
 
 // // Serving static files

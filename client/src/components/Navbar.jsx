@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { HiMenu, HiX, HiSearch, HiOutlineX } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { fadeIn } from "../ultils/motion";
@@ -14,34 +15,33 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const navLinks = [
-    { href: "#home", label: "TRANG CHỦ" },
-    { href: "#about", label: "GIỚI THIỆU" },
+    { href: "/", label: "TRANG CHỦ" },
+    { href: "about", label: "GIỚI THIỆU" },
     {
       label: "LĨNH VỰC HOẠT ĐỘNG",
-      href: "#services", 
+      href: "services",
       children: [
-        { label: "Sản xuất & Kinh doanh thức ăn chăn nuôi", href: "#" },
-        { label: "Kinh doanh thương mại chất đốt", href: "#" },
+        { label: "Sản xuất & Kinh doanh thức ăn chăn nuôi", href: "services" },
+        { label: "Kinh doanh thương mại chất đốt", href: "services" },
         {
           label: "Kinh doanh vật tư cơ khí",
-          href: "#",
+          href: "services",
         },
         {
-          label:
-            "Kinh doanh vật liệu xây dựng (bao gồm sắt thép)",
-          href: "#",
+          label: "Kinh doanh vật liệu xây dựng (bao gồm sắt thép)",
+          href: "services",
         },
       ],
     },
     {
-      href: "#news", 
+      href: "news",
       label: "TIN TỨC",
       children: [
-        { label: "Lĩnh vực sản xuất", href: "#" },
-        { label: "Lĩnh vực kinh doanh", href: "#" },
+        { label: "Lĩnh vực sản xuất", href: "news" },
+        { label: "Lĩnh vực kinh doanh", href: "news" },
       ],
     },
-    { href: "#contact", label: "LIÊN HỆ" },
+    { href: "contact", label: "LIÊN HỆ" },
   ];
 
   const handleSearch = (e) => {

@@ -1,7 +1,8 @@
 // routes.js
 import HomePage from "../pages/customer/Home";
-import ProductsPage from "../pages/customer/Products";
 import AboutPage from "../pages/customer/About";
+import ServicesPage from "../pages/customer/Services";
+import NewsPage from "../pages/customer/News";
 import ContactPage from "../pages/customer/Contact";
 
 import AdminLoginPage from "../pages/admin/Login";
@@ -12,20 +13,22 @@ import AdminDashboardPage from "../pages/admin/Dashboard";
 export const ROUTES = {
   // Customer
   HOME: "/",
-  PRODUCTS: "/products",
   ABOUT: "/about",
+  SERVICES: "/services",
+  NEWS: "/news",
   CONTACT: "/contact",
   // Admin
   ADMIN_LOGIN: "/admin/login",
   ADMIN_DASHBOARD: "/admin/dashboard",
-  ADMIN_PRODUCTS: "/admin/products",
+  ADMIN_SERVICES: "/admin/services",
 };
 
 // Routes khách hàng (public)
 export const customerRoutes = [
   { path: ROUTES.HOME, element: <HomePage /> },
-  { path: ROUTES.PRODUCTS, element: <ProductsPage /> },
   { path: ROUTES.ABOUT, element: <AboutPage /> },
+  { path: ROUTES.SERVICES, element: <ServicesPage /> },
+  { path: ROUTES.NEWS, element: <NewsPage /> },
   { path: ROUTES.CONTACT, element: <ContactPage /> },
 ];
 

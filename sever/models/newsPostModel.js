@@ -28,15 +28,15 @@ const newsSchema = new mongoose.Schema({
       // required: [true, 'Nội dung bài viết là bắt buộc']
     },
     // pdf
-    // pdf_file: {
-    //   type: String,
-    //   validate: {
-    //     validator: function (v) {
-    //       return /\.(pdf)$/i.test(v);
-    //     },
-    //     message: props => `${props.value} không phải là đường dẫn file PDF hợp lệ`
-    //   }
-    // },    
+    pdf_file: {
+      type: String,
+      validate: {
+        validator: function (v) {
+          return /\.(pdf)$/i.test(v);
+        },
+        message: props => `${props.value} không phải là đường dẫn file PDF hợp lệ`
+      }
+    },    
     thumbnail: {
       type: String,
       validate: {
