@@ -60,29 +60,24 @@ const Navbar = () => {
       viewport={{ once: true }}
       className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100 shadow-sm"
     >
-      <div className="w-full flex justify-between items-center container mx-auto px-4 sm:px-6 lg:px-8 md:h-20 h-16">
+      <div className="w-full flex justify-between items-center container mx-auto px-4 sm:px-6 lg:px-8 md:h-30 h-20">
         {/* Logo */}
-        <motion.div
-          variants={fadeIn("right", 0.3)}
-          className="flex items-center gap-2 cursor-pointer"
-        >
-          <div className="flex flex-col items-center justify-center leading-none">
-            {/* Logo chữ "aria" với chấm đỏ trên chữ "i" */}
-            <div className="flex items-center space-x-2">
-              <img
-                src={logoDDV} // <-- đường dẫn tới logo
-                alt="Logo Đất Đồng Vàng"
-                className="h-20 md:h-20 w-auto"
-              />
+        <Link to="/">
+          <motion.div
+            variants={fadeIn("right", 0.3)}
+            className="flex items-center gap-2 cursor-pointer"
+          >
+            <div className="flex flex-col items-center justify-center leading-none">
+              <div className="flex items-center space-x-2">
+                <img
+                  src={logoDDV}
+                  alt="Logo Đất Đồng Vàng"
+                  className="h-25 md:h-25 w-auto"
+                />
+              </div>
             </div>
-
-            {/* HOLDING chữ nhỏ bên dưới */}
-            {/* <div className="text-[10px] md:text-xs tracking-widest text-gray-600 mt-0.5">
-              HOLDING
-            </div> */}
-          </div>
-        </motion.div>
-
+          </motion.div>
+        </Link>
         {/* <motion.div
             whileHover={{ scale: 1.1 }}
             className="w-4 h-4 bg-blue-600 rounded-full opacity-75 hover:opacity-100 transition-opacity"
@@ -91,7 +86,6 @@ const Navbar = () => {
             whileHover={{ scale: 1.1 }}
             className="w-4 h-4 bg-red-500 rounded-full -ml-2 hover:opacity-75 transition-opacity"
           ></motion.div> */}
-
         {/* Navigation Links - Desktop */}
         <motion.div
           variants={fadeIn("down", 0.3)}
@@ -109,7 +103,7 @@ const Navbar = () => {
             const handleMouseLeave = () => {
               const timeout = setTimeout(() => {
                 setShowDropdown(false);
-              }, 200); // 3 giây
+              }, 200);
               setHideTimeout(timeout);
             };
 
@@ -120,24 +114,25 @@ const Navbar = () => {
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                <motion.a
-                  variants={fadeIn("down", 0.1 * (index + 1))}
-                  href={link.href || "#"}
-                  onClick={() => setActiveLink(link.href || "")}
-                  className={`text-xs font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-green-800 after:transition-all
-        ${
-          activeLink === link.href
-            ? "text-green-800 after:w-full"
-            : "text-gray-600 hover:text-gray-900"
-        }`}
-                >
-                  <span className="flex items-center gap-1">
-                    {link.label}
-                    {link.children && (
-                      <FaCaretDown className="text-xs mt-[1px]" />
-                    )}
-                  </span>
-                </motion.a>
+                <motion.div variants={fadeIn("down", 0.1 * (index + 1))}>
+                  <Link
+                    to={link.href || "#"}
+                    onClick={() => setActiveLink(link.href || "")}
+                    className={`text-xm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-green-800 after:transition-all
+              ${
+                activeLink === link.href
+                  ? "text-green-800 after:w-full"
+                  : "text-gray-600 hover:text-gray-900"
+              }`}
+                  >
+                    <span className="flex items-center gap-1">
+                      {link.label}
+                      {link.children && (
+                        <FaCaretDown className="text-xs mt-[1px]" />
+                      )}
+                    </span>
+                  </Link>
+                </motion.div>
 
                 {link.children && showDropdown && (
                   <ul className="absolute top-full left-0 mt-1 w-max bg-white border border-gray-200 shadow-lg rounded-md py-2 px-2 z-50">
@@ -146,7 +141,7 @@ const Navbar = () => {
                         key={i}
                         className="whitespace-nowrap px-4 py-2 hover:bg-green-800 hover:text-white text-sm rounded-md transition-all cursor-pointer"
                       >
-                        <a href={subLink.href}>{subLink.label}</a>
+                        <Link to={subLink.href}>{subLink.label}</Link>
                       </li>
                     ))}
                   </ul>
@@ -155,7 +150,6 @@ const Navbar = () => {
             );
           })}
         </motion.div>
-
         {/* Right Side - Search and CTA */}
         <div className="flex items-center gap-4">
           {/* Search Button */}
@@ -163,28 +157,19 @@ const Navbar = () => {
             variants={fadeIn("left", 0.3)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="p-2 text-gray-600 hover:text-gray-900"
+            className="p-2 text-gray-600 hover:text-gray-900 cursor-pointer" 
             onClick={() => setIsSearchOpen(true)}
           >
-            <HiSearch className="h-5 w-5" />
+            <HiSearch className="h-8 w-8" />
           </motion.button>
 
-          {/* CTA Button
-          <motion.button
-            variants={fadeIn("left", 0.3)}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="hidden md:block bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100"
-          >
-            <a href="#newsletter">Get in touch</a>
-          </motion.button> */}
           {/* Language Switcher */}
           <div className="hidden md:flex items-center gap-2">
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handleLanguageChange("vi")}
-              className="w-8 h-6 rounded overflow-hidden shadow-md border border-gray-200"
+              className="w-10 h-8 cursor-pointer rounded overflow-hidden shadow-md border border-gray-200"
             >
               <img
                 src={flagViet}
@@ -197,7 +182,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handleLanguageChange("en")}
-              className="w-8 h-6 rounded overflow-hidden shadow-md border border-gray-200"
+              className="w-10 h-8 cursor-pointer rounded overflow-hidden shadow-md border border-gray-200"
             >
               <img
                 src={flagEnglish}

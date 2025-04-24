@@ -1,26 +1,23 @@
 import React from 'react'
-import HeroSlider from "../../components/HeroSlider";
-import FeaturesSection from '../../components/FeaturesSection';
-import IntroduceSection from '../../components/IntroduceSection';
-import StructureSection from '../../components/StructureSection';
-import ServicesSection from '../../components/ServicesSection';
-import NewsletterSection from '../../components/NewsletterSection';
-import NewsSlider from '../../components/NewsSlider';
-import NewsPdfSection from '../../components/NewsPdfSection';
-import NewsPosts from '../../components/NewsTest';
+import ImageSlider from '../../components/homePageComponent/ImageSlider';
+import HeroSection from "../../components/homePageComponent/HeroSection";
+import IntroduceSection from '../../components/homePageComponent/IntroduceSection';
+import ServicesSection from '../../components/homePageComponent/ServicesSection';
+import ProjectsSection from '../../components/homePageComponent/ProjectsSection'
+import StructureSection from '../../components/homePageComponent/StructureSection';
+import NewsSection from '../../components/homePageComponent/NewsSection';
+
 
 function Home() {
   return (
     <>
-    <HeroSlider/>
+    <ImageSlider />
+    <HeroSection/>
     <IntroduceSection />
     <ServicesSection />
-    <FeaturesSection />
+    <ProjectsSection />
     <StructureSection />
-    <NewsSlider />
-    <NewsPdfSection />
-    {/* <NewsletterSection /> */}
-    {/* <NewsPosts /> */}
+    <NewsSection />
     </>
   )
 }

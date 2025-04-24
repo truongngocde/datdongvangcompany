@@ -6,29 +6,6 @@ import bgFooter from "../assets/bg-footer.png";
 import logoDDV from "../assets/logoDatdongvang.png";
 
 const Footer = () => {
-  const footerLinks = {
-    company: [
-      { name: "About", href: "#" },
-      { name: "Terms of Use", href: "#" },
-      { name: "Privacy Policy", href: "#" },
-      { name: "How it Works", href: "#" },
-      { name: "Contact Us", href: "#" },
-    ],
-    getHelp: [
-      { name: "Support Carrer", href: "#" },
-      { name: "24h Service", href: "#" },
-      { name: "Quick Chat", href: "#" },
-    ],
-    support: [
-      { name: "FAQ", href: "#" },
-      { name: "Policy", href: "#" },
-      { name: "Business", href: "#" },
-    ],
-    contact: [
-      { name: "WhatsApp", href: "#" },
-      { name: "Support 24", href: "#" },
-    ],
-  };
   return (
     <div
       style={{ background: `url(${bgFooter}) center center / cover no-repeat` }}
@@ -56,18 +33,18 @@ const Footer = () => {
                     <img
                       src={logoDDV} // <-- đường dẫn tới logo
                       alt="Logo Đất Đồng Vàng"
-                      className="h-20 md:h-20 w-auto"
+                      className="h-25 md:h-25 w-auto"
                     />
                   </div>
 
                   {/* HOLDING chữ nhỏ bên dưới */}
                 </div>
-                <span className="text-sm font-bold ml-1">
+                <span className="text-xl font-bold ml-1">
                   CÔNG TY CỔ PHẦN ĐẤT ĐỒNG VÀNG
                 </span>
               </motion.div>
 
-              <p className="text-gray-600 mb-6 text-sm">
+              <p className="text-gray-600 mb-6 text-lg">
                 Trụ Sở Chính : Số 1 Cộng Hòa 3, P. Tân Thành, Q. Tân Phú, TP.HCM
                 <br /> <br />
                 Hotline : 0909.090.090 <br /> <br />
@@ -145,7 +122,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="border-t border-gray-200 mt-12 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-lg">
                 Copyright © {new Date().getFullYear()} Công ty Cổ phần Đất Đồng
                 Vàng
               </p>
