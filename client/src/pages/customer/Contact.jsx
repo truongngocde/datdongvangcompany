@@ -1,8 +1,29 @@
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../../ultils/motion";
+import banner1 from '../../assets/banner1.jpg';
 
 export default function ContactPage() {
   return (
+    <>
+        <div
+        className="relative w-full h-[60vh] md:h-[70vh] bg-cover bg-center flex items-center justify-center"
+        style={{
+          backgroundImage: `url(${banner1})`, // 👈 Đổi path này thành đúng link ảnh
+        }}
+      >
+        {/* Overlay làm mờ tối */}
+        <div className="absolute inset-0  bg-opacity-50"></div>
+
+        {/* Nội dung slogan */}
+        <div className="relative z-10 text-center px-4">
+          <h1 className="text-amber-50 text-3xl md:text-5xl font-bold drop-shadow-lg">
+            Vững nền móng – Bền niềm tin
+          </h1>
+          <p className="text-amber-50 mt-4 text-lg md:text-xl drop-shadow">
+            Đồng hành cùng phát triển bền vững
+          </p>
+        </div>
+      </div>
     <div className="bg-gradient-to-br from-green-50 to-white pb-20">
       {/* Tiêu đề LIÊN HỆ */}
       <motion.div
@@ -103,5 +124,7 @@ export default function ContactPage() {
         </div>
       </section>
     </div>
+    </>
+    
   );
 }

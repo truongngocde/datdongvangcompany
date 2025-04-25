@@ -4,3 +4,34 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
 }
+
+.custom-content img {
+    width: 100%;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-content p {
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+    font-size: 17px;
+    text-align: justify;
+  }
+  
+  .custom-content h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 2rem 0 1rem;
+  }
+  
+  .custom-content ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .custom-content strong {
+    font-weight: 600;
+  }
+  

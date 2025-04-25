@@ -3,8 +3,8 @@ import HomePage from "../pages/customer/Home";
 import AboutPage from "../pages/customer/About";
 import ServicesPage from "../pages/customer/Services";
 import NewsPage from "../pages/customer/News";
+import NewsDetail from "../pages/customer/NewsDetail";
 import ContactPage from "../pages/customer/Contact";
-
 import AdminLoginPage from "../pages/admin/Login";
 import AdminDashboardPage from "../pages/admin/Dashboard";
 // import AdminProductsPage from '../pages/admin/AdminProductsPage';
@@ -16,6 +16,7 @@ export const ROUTES = {
   ABOUT: "/about",
   SERVICES: "/services",
   NEWS: "/news",
+  NEWS_DETAIL: "/news/:slug",
   CONTACT: "/contact",
   // Admin
   ADMIN_LOGIN: "/admin/login",
@@ -29,6 +30,7 @@ export const customerRoutes = [
   { path: ROUTES.ABOUT, element: <AboutPage /> },
   { path: ROUTES.SERVICES, element: <ServicesPage /> },
   { path: ROUTES.NEWS, element: <NewsPage /> },
+  { path: ROUTES.NEWS_DETAIL, element: <NewsDetail /> },
   { path: ROUTES.CONTACT, element: <ContactPage /> },
 ];
 

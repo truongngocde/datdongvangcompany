@@ -24,6 +24,17 @@ exports.getPostById = async (req, res) => {
     res.status(500).json({ error: "Lỗi server khi lấy bài viết" });
   }
 };
+exports.getPostBySlug = async (req, res) => {
+  try {
+    const post = await NewsPost.findOne({ slug: req.params.slug }).populate("category_id");
+    if (!post)
+      return res.status(404).json({ error: "Không tìm thấy bài viết" });
+    res.json(post);
+  } catch (err) {
+    res.status(500).json({ error: "Lỗi server khi lấy bài viết" });
+  }
+};
+
 
 // CREATE post
 // controllers/newsPostController.js

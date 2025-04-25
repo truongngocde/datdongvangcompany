@@ -6,6 +6,7 @@ const router = express.Router();
 // Routes
 router.get("/", newsPostController.getAllPosts);
 router.get("/:id", newsPostController.getPostById);
+router.get("/slug/:slug", newsPostController.getPostBySlug);
 router.post(
   "/",
   upload.fields([
