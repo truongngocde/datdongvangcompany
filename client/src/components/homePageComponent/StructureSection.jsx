@@ -42,7 +42,7 @@ const StructureSection = () => {
           <motion.a
             variants={fadeIn("up", 0.6)}
             href="#"
-            className="text-blue-500 text-xl font-semibold flex items-center gap-2 hover:gap-4 transition-all mt-10"
+            className="text-amber-600 text-xl font-semibold flex items-center gap-2 hover:gap-4 transition-all mt-10"
           >
             Tìm hiểu thêm
             <motion.svg

@@ -2,6 +2,7 @@
 import HomePage from "../pages/customer/Home";
 import AboutPage from "../pages/customer/About";
 import ServicesPage from "../pages/customer/Services";
+import ServiceDetail from "../pages/customer/ServiceDetail";
 import NewsPage from "../pages/customer/News";
 import NewsDetail from "../pages/customer/NewsDetail";
 import ContactPage from "../pages/customer/Contact";
@@ -15,6 +16,7 @@ export const ROUTES = {
   HOME: "/",
   ABOUT: "/about",
   SERVICES: "/services",
+  SERVICE_DETAIL: "/services/:slug",
   NEWS: "/news",
   NEWS_DETAIL: "/news/:slug",
   CONTACT: "/contact",
@@ -29,6 +31,7 @@ export const customerRoutes = [
   { path: ROUTES.HOME, element: <HomePage /> },
   { path: ROUTES.ABOUT, element: <AboutPage /> },
   { path: ROUTES.SERVICES, element: <ServicesPage /> },
+  { path: ROUTES.SERVICE_DETAIL, element: <ServiceDetail /> },
   { path: ROUTES.NEWS, element: <NewsPage /> },
   { path: ROUTES.NEWS_DETAIL, element: <NewsDetail /> },
   { path: ROUTES.CONTACT, element: <ContactPage /> },

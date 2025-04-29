@@ -9,6 +9,7 @@ import NewsSection from '../../components/homePageComponent/NewsSection';
 
 
 function Home() {
+  
   return (
     <>
     <ImageSlider />

@@ -106,12 +106,12 @@ export default function NewsPage() {
             <div className="flex justify-center mt-8">
               <motion.button
                 onClick={handleLoadMore}
-                className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded-full transition-colors"
+                className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded-full transition-colors cursor-pointer"
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 animate="show"
               >
-                Xem thêm ({posts.length - visibleCount} Bài viết) ⌄
+                Xem thêm ({posts.length - visibleCount} Bài viết) 
               </motion.button>
             </div>
           )}

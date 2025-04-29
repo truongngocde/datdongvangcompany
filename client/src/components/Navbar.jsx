@@ -16,33 +16,40 @@ const Navbar = () => {
 
   const navLinks = [
     { href: "/", label: "TRANG CHỦ" },
-    { href: "about", label: "GIỚI THIỆU" },
+    { href: "/about", label: "GIỚI THIỆU" },
     {
       label: "LĨNH VỰC HOẠT ĐỘNG",
-      href: "services",
+      href: "/services/kinh-doanh-chat-dot",
       children: [
-        { label: "Sản xuất & Kinh doanh thức ăn chăn nuôi", href: "services" },
-        { label: "Kinh doanh thương mại chất đốt", href: "services" },
         {
-          label: "Kinh doanh vật tư cơ khí",
-          href: "services",
+          label: "Kinh doanh thương mại chất đốt",
+          href: "/services/kinh-doanh-chat-dot",
         },
         {
-          label: "Kinh doanh vật liệu xây dựng (bao gồm sắt thép)",
-          href: "services",
+          label: "Kinh doanh và Sản xuất thiết bị Vật tư Lò hơi",
+          href: "/services/thiet-bi-vat-tu-lo-hoi",
+        },
+        {
+          label: "Vật tư cơ khí và Năng lượng mặt trời",
+          href: "/services/vat-tu-co-khi-nang-luong-mat-troi",
+        },
+        {
+          label: "Sản xuất & Kinh doanh thức ăn chăn nuôi",
+          href: "/services/thuc-an-chan-nuoi",
         },
       ],
     },
     {
-      href: "news",
+      href: "/news",
       label: "TIN TỨC",
       children: [
-        { label: "Lĩnh vực sản xuất", href: "news" },
-        { label: "Lĩnh vực kinh doanh", href: "news" },
+        { label: "Lĩnh vực sản xuất", href: "/news" },
+        { label: "Lĩnh vực kinh doanh", href: "/news" },
       ],
     },
-    { href: "contact", label: "LIÊN HỆ" },
+    { href: "/contact", label: "LIÊN HỆ" },
   ];
+  
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -157,7 +164,7 @@ const Navbar = () => {
             variants={fadeIn("left", 0.3)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="p-2 text-gray-600 hover:text-gray-900 cursor-pointer" 
+            className="p-2 text-gray-600 hover:text-gray-900 cursor-pointer"
             onClick={() => setIsSearchOpen(true)}
           >
             <HiSearch className="h-8 w-8" />

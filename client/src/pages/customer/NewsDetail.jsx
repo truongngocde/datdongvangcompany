@@ -1,6 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
+import { fadeIn, textVariant } from "../../ultils/motion";
+import bannerService from "../../assets/services/bannerLinhvuchoatdong.jpg";
 
 export default function NewsDetail() {
   const { slug } = useParams();
@@ -21,7 +24,25 @@ export default function NewsDetail() {
   if (!post) return <p className="text-center py-10 text-gray-500">Đang tải bài viết...</p>;
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
+    <>
+      {/* Banner Header */}
+      <div className="relative w-full h-[400px] overflow-hidden">
+        <img
+          src={bannerService}
+          alt="Banner Service"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 drop-shadow-md">
+            Xây chất lượng – Dựng niềm tin
+          </h2>
+        </div>
+      </div>
+
+      {/* Tiêu đề trang */}
+     
+
+      <div className="max-w-4xl mx-auto px-4 py-10">
       {/* Tiêu đề bài viết */}
       <h1 className="text-4xl font-bold text-gray-900 mb-6 text-center">{post.title}</h1>
 
@@ -38,9 +59,13 @@ export default function NewsDetail() {
 
       {/* Nội dung bài viết */}
       <div
-        className="prose max-w-none prose-lg prose-img:rounded-lg prose-img:shadow prose-p:leading-relaxed prose-h2:text-2xl prose-h3:text-xl"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
+  className="text-lg leading-relaxed text-gray-700 text-justify space-y-6"
+  dangerouslySetInnerHTML={{ __html: post.content }}
+/>
+
+
     </div>
+    </>
+    
   );
 }
