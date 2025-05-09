@@ -3,6 +3,8 @@ import axios from "axios";
 import { CalendarDays } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../ultils/motion";
+import axiosClient from "../../api/axiosClient";
+
 
 export default function PopularNewsSection() {
   const [news, setNews] = useState([]);
@@ -10,7 +12,7 @@ export default function PopularNewsSection() {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/news-posts");
+        const res = await axiosClient.get("/api/news-posts");
         const publishedNews = res.data.filter(post => post.is_published);
         setNews(publishedNews);
       } catch (err) {
@@ -42,7 +44,7 @@ export default function PopularNewsSection() {
           {featured && (
             <>
               <motion.img
-                src={`http://localhost:8000/${featured.thumbnail}`}
+                src={`${import.meta.env.VITE_API_BASE_URL}/${featured.thumbnail}`}
                 alt={featured.title}
                 className="rounded-xl w-full h-full object-cover"
                 variants={fadeIn("right", 0.3)}
@@ -80,7 +82,7 @@ export default function PopularNewsSection() {
               className="flex items-start gap-5"
             >
               <img
-                src={`http://localhost:8000/${post.thumbnail}`}
+                src={`${import.meta.env.VITE_API_BASE_URL}/${post.thumbnail}`}
                 alt={post.title}
                 className="w-24 h-24 rounded-md object-cover"
               />

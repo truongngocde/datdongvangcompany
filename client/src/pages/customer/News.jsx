@@ -1,33 +1,29 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../../ultils/motion";
 import { Link } from "react-router-dom";
 import banner3 from "../../assets/banner3.jpg";
+import data from "../../data/news.news_posts.json"; // Giả sử bạn có file data.json chứa dữ liệu bài viết
 
 export default function NewsPage() {
   const [posts, setPosts] = useState([]);
-  const [visibleCount, setVisibleCount] = useState(3);
+  const [visibleCount, setVisibleCount] = useState(5);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetchPosts();
-  }, []);
-
-  const fetchPosts = async () => {
+    // Thay vì gọi API, lấy dữ liệu từ file JSON cục bộ
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:8000/api/news-posts");
-      setPosts(response.data);
+      setPosts(data); // Giả sử data là dữ liệu bài viết trong file JSON
     } catch (error) {
       console.error("Lỗi khi lấy dữ liệu:", error);
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + 2);
+    setVisibleCount((prev) => prev + 5);
   };
 
   return (
@@ -39,7 +35,7 @@ export default function NewsPage() {
         }}
       >
         {/* Overlay làm mờ tối */}
-        <div className="absolute inset-0  bg-opacity-50"></div>
+        <div className="absolute inset-0 bg-opacity-50"></div>
 
         {/* Nội dung slogan */}
         <div className="relative z-10 text-center px-4">
@@ -58,7 +54,7 @@ export default function NewsPage() {
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
           variants={textVariant(0.2)}
-          className="pt-20  text-center"
+          className="pt-20 text-center"
         >
           <h1 className="text-5xl font-bold text-green-800">TIN TỨC</h1>
           <motion.div
@@ -83,14 +79,19 @@ export default function NewsPage() {
                     className="bg-white shadow rounded-2xl overflow-hidden"
                   >
                     <img
-                      src={`http://localhost:8000/${post.thumbnail}`}
+                      src={`${post.thumbnail}`} // Thay đổi đường dẫn hình ảnh
                       alt={post.title}
                       className="h-48 w-full object-cover"
                     />
                     <div className="p-4">
                       <span className="inline-block bg-yellow-600 text-white text-sm px-3 py-1 rounded-full mb-2">
                         📅{" "}
-                        {new Date(post.created_at).toLocaleDateString("vi-VN")}
+                        {new Date(post.created_at.$date).toLocaleDateString(
+                          "vi-VN",
+                          {
+                            timeZone: "UTC",
+                          }
+                        )}
                       </span>
                       <h3 className="text-lg font-semibold text-gray-800 line-clamp-2">
                         {post.title}
@@ -111,7 +112,7 @@ export default function NewsPage() {
                 initial="hidden"
                 animate="show"
               >
-                Xem thêm ({posts.length - visibleCount} Bài viết) 
+                Xem thêm ({posts.length - visibleCount} Bài viết)
               </motion.button>
             </div>
           )}

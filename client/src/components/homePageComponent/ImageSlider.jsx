@@ -6,7 +6,7 @@ import banner3 from '../../assets/banner3.jpg';
 
 // Danh sách ảnh slider
 const sliderImages = [
-  banner,
+  // banner,
   banner1,
   banner2,
   banner3,
